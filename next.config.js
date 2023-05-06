@@ -3,7 +3,11 @@ const { withPayload } = require("@payloadcms/next-payload");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	reactStrictMode: true
+	reactStrictMode: true,
+	webpack: (config) => {
+		config.resolve.fallback = { fs: false, path: false };
+		return config;
+	}
 };
 
 const payloadConfig = {
