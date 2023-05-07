@@ -14,7 +14,8 @@ const adapter = s3Adapter({
 		credentials: {
 			accessKeyId: process.env.S3_ACCESS_KEY_ID as string,
 			secretAccessKey: process.env.S3_SECRET_ACCESS_KEY as string
-		}
+		},
+		endpoint: process.env.S3_ENDPOINT as string
 	},
 	bucket: process.env.S3_BUCKET as string,
 	acl: "public-read"
@@ -25,7 +26,9 @@ export default buildConfig({
 		cloudStorage({
 			collections: {
 				media: {
-					adapter
+					adapter,
+					generateFileURL: (args) =>
+						`${process.env.S3_ENDPOINT}/${process.env.S3_BUCKET}/${args.filename}`
 				}
 			}
 		})
