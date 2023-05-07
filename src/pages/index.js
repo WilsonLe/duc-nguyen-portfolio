@@ -1,7 +1,7 @@
 import Home from "./home";
 
 const MainRoot = () => {
-  return <Home />;
+	return <Home />;
 };
 
 export default MainRoot;
