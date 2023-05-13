@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/components/header/HeaderNavigation.tsx"  ],
   "exclude": [
     "node_modules"
   ]

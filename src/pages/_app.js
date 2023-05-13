@@ -1,10 +1,11 @@
-import { ThemeProvider } from "next-themes";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ThemeProvider } from "next-themes";
+import Head from "next/head";
 import { useEffect } from "react";
-import "../styles/globals.css";
-import "../styles/custom.css";
 import { ToastContainer } from "react-toastify";
+import "../styles/custom.css";
+import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
 	useEffect(() => {
@@ -26,6 +27,9 @@ export default function App({ Component, pageProps }) {
 			/>
 
 			<ThemeProvider attribute="class">
+				<Head>
+					<meta name="viewport" content="width=device-width, initial-scale=1" />
+				</Head>
 				<Component {...pageProps} />
 			</ThemeProvider>
 		</>
