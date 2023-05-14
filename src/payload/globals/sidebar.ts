@@ -2,6 +2,9 @@ import type { GlobalConfig } from "payload/types";
 
 export const sidebar: GlobalConfig = {
 	slug: "sidebar",
+	access: {
+		read: () => true
+	},
 	fields: [
 		{
 			name: "avatar",

@@ -2,6 +2,9 @@ import type { GlobalConfig } from "payload/types";
 
 export const works: GlobalConfig = {
 	slug: "works",
+	access: {
+		read: () => true
+	},
 	fields: [
 		{
 			name: "page title",

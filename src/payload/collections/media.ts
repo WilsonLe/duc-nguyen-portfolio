@@ -6,6 +6,9 @@ dotenv.config();
 
 export const media: CollectionConfig = {
 	slug: "media",
+	access: {
+		read: () => true
+	},
 	upload: {
 		staticURL: "/media",
 		staticDir: "media",

@@ -8,6 +8,7 @@ import Seo from "../components/seo/Seo";
 import { Skills } from "../components/service/Skills";
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+	// const header = await HeaderModel.get();
 	return {
 		props: HomeProps.parse({})
 	};

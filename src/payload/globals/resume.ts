@@ -2,6 +2,9 @@ import type { GlobalConfig } from "payload/types";
 
 export const resume: GlobalConfig = {
 	slug: "resume",
+	access: {
+		read: () => true
+	},
 	fields: [
 		{
 			name: "page title",
