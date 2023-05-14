@@ -23,7 +23,7 @@ export const projectTags: CollectionConfig = {
 			async (args) => {
 				await Axios.post("/api/revalidate", {
 					token: process.env.REVALIDATION_TOKEN,
-					path: ["/works"]
+					paths: ["/works"]
 				});
 				return args.doc;
 			}

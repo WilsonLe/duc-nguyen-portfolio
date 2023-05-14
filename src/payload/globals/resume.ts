@@ -79,7 +79,7 @@ export const resume: GlobalConfig = {
 			async (args) => {
 				await Axios.post("/api/revalidate", {
 					token: process.env.REVALIDATION_TOKEN,
-					path: ["/resume"]
+					paths: ["/resume"]
 				});
 				return args.doc;
 			}

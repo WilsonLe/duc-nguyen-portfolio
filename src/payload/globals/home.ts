@@ -84,7 +84,7 @@ export const home: GlobalConfig = {
 			async (args) => {
 				await Axios.post("/api/revalidate", {
 					token: process.env.REVALIDATION_TOKEN,
-					path: ["/"]
+					paths: ["/"]
 				});
 				return args.doc;
 			}
