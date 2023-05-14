@@ -6,7 +6,7 @@ export const defaultContactProps = {
 	header: defaultHeaderProps,
 	sidebar: defaultSidebarProps,
 	seo: {
-		pageTitle: "Home"
+		pageTitle: "Contact"
 	},
 	main: {
 		header: "Contact",
