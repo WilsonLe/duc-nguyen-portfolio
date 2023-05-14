@@ -76,8 +76,9 @@ export const sidebar: GlobalConfig = {
 			type: "group",
 			fields: [
 				{
-					name: "url",
-					type: "text",
+					name: "file",
+					type: "relationship",
+					relationTo: "media",
 					required: true
 				},
 				{
