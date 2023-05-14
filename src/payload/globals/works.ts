@@ -18,7 +18,7 @@ export const works: GlobalConfig = {
 		},
 		{
 			name: "projects",
-			type: "group",
+			type: "array",
 			fields: [
 				{
 					name: "tag",
