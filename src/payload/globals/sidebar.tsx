@@ -53,8 +53,8 @@ export const sidebar: GlobalConfig = {
 					required: true
 				},
 				{
-					name: "name",
-					type: "text",
+					name: "content",
+					type: "richText",
 					required: true
 				},
 				{
