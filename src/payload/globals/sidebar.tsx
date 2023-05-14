@@ -23,6 +23,7 @@ export const sidebar: GlobalConfig = {
 		{
 			name: "social",
 			type: "array",
+			required: true,
 			fields: [
 				{
 					name: "link",
@@ -46,6 +47,7 @@ export const sidebar: GlobalConfig = {
 		{
 			name: "personalInfo",
 			type: "array",
+			required: true,
 			fields: [
 				{
 					name: "name",
