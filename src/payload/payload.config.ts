@@ -4,7 +4,6 @@ import path from "path";
 import { buildConfig } from "payload/config";
 import { media } from "./collections/media";
 import { projectTags } from "./collections/projectTags";
-import { projects } from "./collections/projects";
 import { users } from "./collections/users";
 import { contact } from "./globals/contact";
 import { header } from "./globals/header";
@@ -40,7 +39,7 @@ export default buildConfig({
 		})
 	],
 	admin: { user: users.slug },
-	collections: [media, projectTags, users, projects],
+	collections: [media, users, projectTags],
 	globals: [header, sidebar, home, resume, works, contact],
 	graphQL: {
 		disablePlaygroundInProduction: false,
