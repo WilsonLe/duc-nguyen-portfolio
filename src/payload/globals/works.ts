@@ -21,7 +21,7 @@ export const works: GlobalConfig = {
 			type: "array",
 			fields: [
 				{
-					name: "tag",
+					name: "tags",
 					type: "relationship",
 					relationTo: "project tags",
 					hasMany: true,
