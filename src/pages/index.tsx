@@ -1,4 +1,7 @@
 import { HomeProps } from "@/models/HomeProps";
+import { Header as HeaderModel } from "@/models/cms/header";
+import { HomeMain as HomeMainModel } from "@/models/cms/homeMain";
+import { Sidebar as SidebarModel } from "@/models/cms/sidebar";
 import { GetStaticProps, NextPage } from "next";
 import Intro from "../components/about/Intro";
 import SidebarInfo from "../components/about/SidebarInfo";
@@ -8,9 +11,18 @@ import Seo from "../components/seo/Seo";
 import { Skills } from "../components/service/Skills";
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-	// const header = await HeaderModel.get();
+	const [header, sidebar, main] = await Promise.all([
+		HeaderModel.get(),
+		SidebarModel.get(),
+		HomeMainModel.get()
+	]);
 	return {
-		props: HomeProps.parse({})
+		props: HomeProps.parse({
+			header,
+			sidebar,
+			main,
+			seo: { pageTitle: main.pageTitle }
+		})
 	};
 };
 

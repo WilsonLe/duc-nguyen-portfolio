@@ -1,4 +1,7 @@
 import { ResumeProps } from "@/models/ResumeProps";
+import { Header as HeaderModel } from "@/models/cms/header";
+import { ResumeMain } from "@/models/cms/resumeMain";
+import { Sidebar as SidebarModel } from "@/models/cms/sidebar";
 import { GetStaticProps, NextPage } from "next";
 import { ResumeSections } from "../components/Resume/ResumeCard";
 import SidebarInfo from "../components/about/SidebarInfo";
@@ -7,8 +10,18 @@ import HeaderNavigation from "../components/header/HeaderNavigation";
 import Seo from "../components/seo/Seo";
 
 export const getStaticProps: GetStaticProps<ResumeProps> = async () => {
+	const [header, sidebar, main] = await Promise.all([
+		HeaderModel.get(),
+		SidebarModel.get(),
+		ResumeMain.get()
+	]);
 	return {
-		props: ResumeProps.parse({})
+		props: ResumeProps.parse({
+			header,
+			sidebar,
+			main,
+			seo: { pageTitle: main.pageTitle }
+		})
 	};
 };
 

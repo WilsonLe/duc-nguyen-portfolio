@@ -33,7 +33,7 @@ const SidebarInfo = (props: HomeProps["sidebar"]) => {
 				</div>
 
 				<a
-					href={props.resume.url}
+					href={props.resume.file.src}
 					download
 					className="inline-flex items-center mx-auto bg-gradient-to-r duration-200 transition ease-linear hover:bg-gradient-to-l from-[#DD2476]  to-[#fa5252ef] px-8 py-3 text-lg text-white rounded-[35px] mt-6"
 				>

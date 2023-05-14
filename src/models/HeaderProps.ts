@@ -7,7 +7,7 @@ export const defaultHeaderProps = {
 	},
 	menu: [
 		{
-			id: 1,
+			id: "1",
 			name: "Home",
 			routePath: "/",
 			iconLight: {
@@ -20,7 +20,7 @@ export const defaultHeaderProps = {
 			}
 		},
 		{
-			id: 2,
+			id: "2",
 			name: "Resume",
 			routePath: "/resume",
 			iconLight: {
@@ -33,7 +33,7 @@ export const defaultHeaderProps = {
 			}
 		},
 		{
-			id: 3,
+			id: "3",
 			name: "Works",
 			routePath: "/works",
 			iconLight: {
@@ -46,7 +46,7 @@ export const defaultHeaderProps = {
 			}
 		},
 		{
-			id: 4,
+			id: "4",
 			name: "Contact",
 			routePath: "/contact",
 			iconLight: {
@@ -69,7 +69,7 @@ export const HeaderProps = z
 		}),
 		menu: z.array(
 			z.object({
-				id: z.number(),
+				id: z.string(),
 				name: z.string(),
 				routePath: z.string(),
 				iconLight: z.object({ src: z.string(), alt: z.string() }),

@@ -12,7 +12,7 @@ export const defaultContactProps = {
 		header: "Contact",
 		contacts: [
 			{
-				id: 0,
+				id: "1",
 				iconDark: {
 					src: "/images/icons/ai-outline-phone-dark.svg",
 					alt: "Phone icon"
@@ -27,7 +27,7 @@ export const defaultContactProps = {
 				content: "<p>+1 234 567 890</p><p>+9 876 543 210</p>"
 			},
 			{
-				id: 1,
+				id: "2",
 				iconDark: {
 					src: "/images/icons/ai-outline-phone-dark.svg",
 					alt: "Email icon"
@@ -54,7 +54,7 @@ export const ContactProps = z.object({
 			header: z.string(),
 			contacts: z.array(
 				z.object({
-					id: z.number(),
+					id: z.string(),
 					iconDark: z.object({
 						src: z.string(),
 						alt: z.string()

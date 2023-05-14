@@ -22,7 +22,7 @@ export const Portfolio: FC<WorksProps["main"]> = (props) => {
 	const [isShowing, setIsShowing] = useState(false);
 	const { theme } = useTheme();
 
-	const onOpenProject = (id: number) => {
+	const onOpenProject = (id: string) => {
 		const portfolio = props.projects.find((item) => item.id === id);
 		setCurrentProject(portfolio ?? null);
 		setIsShowing(true);
@@ -38,7 +38,9 @@ export const Portfolio: FC<WorksProps["main"]> = (props) => {
 			if (text === "All") {
 				setProjects(props.projects);
 			} else {
-				const projects = props.projects.filter((item) => item.tag === text);
+				const projects = props.projects.filter((item) =>
+					item.tags.includes(text)
+				);
 				setProjects(projects);
 			}
 		},
@@ -108,7 +110,7 @@ export const Portfolio: FC<WorksProps["main"]> = (props) => {
 							/>
 						</div>
 						<span className="pt-5 text-[14px] font-normal text-gray-lite block dark:text-[#A6A6A6]">
-							{item.tag}
+							{item.tags.join(", ")}
 						</span>
 						<h2 className="font-medium cursor-pointer text-xl duration-300 transition hover:text-[#FA5252] dark:hover:text-[#FA5252] dark:text-white mt-2">
 							{item.header}

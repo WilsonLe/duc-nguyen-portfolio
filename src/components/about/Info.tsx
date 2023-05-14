@@ -35,7 +35,7 @@ const Info = (props: HomeProps["sidebar"]) => {
 						<p className="text-xs text-[#44566C] dark:text-[#A6A6A6]">
 							{item.name}
 						</p>
-						<p
+						<div
 							className="dark:text-white break-all"
 							dangerouslySetInnerHTML={{ __html: item.content }}
 						/>

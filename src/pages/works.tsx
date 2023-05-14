@@ -1,5 +1,8 @@
 import { Portfolio } from "@/components/works/Portfolio";
 import { WorksProps } from "@/models/WorksProps";
+import { Header as HeaderModel } from "@/models/cms/header";
+import { Sidebar as SidebarModel } from "@/models/cms/sidebar";
+import { WorksMain as WorksMainModel } from "@/models/cms/worksMain";
 import { GetStaticProps, NextPage } from "next";
 import SidebarInfo from "../components/about/SidebarInfo";
 import Header from "../components/header/Header";
@@ -7,8 +10,18 @@ import HeaderNavigation from "../components/header/HeaderNavigation";
 import Seo from "../components/seo/Seo";
 
 export const getStaticProps: GetStaticProps<WorksProps> = async () => {
+	const [header, sidebar, main] = await Promise.all([
+		HeaderModel.get(),
+		SidebarModel.get(),
+		WorksMainModel.get()
+	]);
 	return {
-		props: WorksProps.parse({})
+		props: WorksProps.parse({
+			header,
+			sidebar,
+			main,
+			seo: { pageTitle: main.pageTitle }
+		})
 	};
 };
 

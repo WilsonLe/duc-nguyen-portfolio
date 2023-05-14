@@ -2,7 +2,7 @@ import { z } from "zod";
 import { HeaderProps, defaultHeaderProps } from "./HeaderProps";
 import { SidebarProps, defaultSidebarProps } from "./SidebarProps";
 
-const defaultHome = {
+export const defaultHome = {
 	header: defaultHeaderProps,
 	sidebar: defaultSidebarProps,
 	seo: {
@@ -17,7 +17,7 @@ const defaultHome = {
 			header: "What I Do!",
 			skills: [
 				{
-					id: 1,
+					id: "1'",
 					header: "Graphic Design",
 					content: `<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>`,
 					backgroundColorLight: "#FCF4FF",
@@ -41,7 +41,7 @@ export const HomeProps = z.object({
 				header: z.string(),
 				skills: z.array(
 					z.object({
-						id: z.number(),
+						id: z.string(),
 						header: z.string(),
 						content: z.string(),
 						iconLight: z.object({ src: z.string(), alt: z.string() }),

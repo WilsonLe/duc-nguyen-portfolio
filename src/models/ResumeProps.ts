@@ -12,7 +12,7 @@ const defaultResume = {
 		header: "Resume",
 		sections: [
 			{
-				id: 1,
+				id: "1",
 				header: "Education",
 				iconLight: {
 					src: "/images/icons/md-outline-school-light.svg",
@@ -24,7 +24,7 @@ const defaultResume = {
 				},
 				cards: [
 					{
-						id: 1,
+						id: "1",
 						date: "2020-2024",
 						header: "Bachelor of Arts",
 						content: "<p>Denison University, Granville, OH</p>",
@@ -34,7 +34,7 @@ const defaultResume = {
 				]
 			},
 			{
-				id: 2,
+				id: "2",
 				header: "Experience",
 				iconLight: {
 					src: "/images/icons/md-outline-business-center-light.svg",
@@ -46,7 +46,7 @@ const defaultResume = {
 				},
 				cards: [
 					{
-						id: 1,
+						id: "1",
 						date: "August 2023 - current",
 						header: "Graphic Designer",
 						content:
@@ -69,13 +69,13 @@ export const ResumeProps = z.object({
 			header: z.string(),
 			sections: z.array(
 				z.object({
-					id: z.number(),
+					id: z.string(),
 					header: z.string(),
 					iconLight: z.object({ src: z.string(), alt: z.string() }),
 					iconDark: z.object({ src: z.string(), alt: z.string() }),
 					cards: z.array(
 						z.object({
-							id: z.number(),
+							id: z.string(),
 							date: z.string(),
 							header: z.string(),
 							content: z.string(),

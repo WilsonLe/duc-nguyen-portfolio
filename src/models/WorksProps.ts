@@ -20,8 +20,8 @@ const defaultWorksProps = {
 		tags: ["Logo", "Poster", "Web Design", "Mobile App Design"],
 		projects: [
 			{
-				id: 0,
-				tag: "Logo",
+				id: "1",
+				tags: ["Logo"],
 				header: "DeerX Logo",
 				thumbnail: {
 					src: "/images/work_images/small/1.jpg",
@@ -35,7 +35,7 @@ const defaultWorksProps = {
 				backgroundColorDark: "#000000",
 				metadata: [
 					{
-						id: 1,
+						id: "1",
 						iconLight: {
 							src: "/images/icons/ai-outline-project-light.svg",
 							alt: "project icon"
@@ -63,8 +63,8 @@ export const WorksProps = z.object({
 			tags: z.array(z.string()),
 			projects: z.array(
 				z.object({
-					id: z.number(),
-					tag: z.string(),
+					id: z.string(),
+					tags: z.array(z.string()),
 					header: z.string(),
 					thumbnail: z.object({ src: z.string(), alt: z.string() }),
 					banner: z.object({ src: z.string(), alt: z.string() }),
@@ -72,7 +72,7 @@ export const WorksProps = z.object({
 					backgroundColorDark: z.string(),
 					metadata: z.array(
 						z.object({
-							id: z.number(),
+							id: z.string(),
 							iconLight: z.object({ src: z.string(), alt: z.string() }),
 							iconDark: z.object({ src: z.string(), alt: z.string() }),
 							content: z.string()

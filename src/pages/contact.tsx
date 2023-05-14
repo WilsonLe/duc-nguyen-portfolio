@@ -1,4 +1,7 @@
 import { ContactProps } from "@/models/ContactProps";
+import { ContactMain as ContactMainModel } from "@/models/cms/contactMain";
+import { Header as HeaderModel } from "@/models/cms/header";
+import { Sidebar as SidebarModel } from "@/models/cms/sidebar";
 import { GetStaticProps, NextPage } from "next";
 import SidebarInfo from "../components/about/SidebarInfo";
 import { Address } from "../components/contact/Address";
@@ -7,8 +10,18 @@ import HeaderNavigation from "../components/header/HeaderNavigation";
 import Seo from "../components/seo/Seo";
 
 export const getStaticProps: GetStaticProps<ContactProps> = async () => {
+	const [header, sidebar, main] = await Promise.all([
+		HeaderModel.get(),
+		SidebarModel.get(),
+		ContactMainModel.get()
+	]);
 	return {
-		props: ContactProps.parse({})
+		props: ContactProps.parse({
+			header,
+			sidebar,
+			main,
+			seo: { pageTitle: main.pageTitle }
+		})
 	};
 };
 

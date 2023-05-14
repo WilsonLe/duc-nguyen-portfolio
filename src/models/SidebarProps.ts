@@ -6,7 +6,7 @@ export const defaultSidebarProps = {
 	header2: "Graphic Designer",
 	social: [
 		{
-			id: 1,
+			id: "1",
 			link: "https://www.facebook.com/",
 			iconLight: {
 				src: "/images/icons/fa-facebook-f-light.svg",
@@ -18,7 +18,7 @@ export const defaultSidebarProps = {
 			}
 		},
 		{
-			id: 2,
+			id: "2",
 			link: "https://twitter.com/",
 			iconLight: {
 				src: "/images/icons/fa-twitter-light.svg",
@@ -30,7 +30,7 @@ export const defaultSidebarProps = {
 			}
 		},
 		{
-			id: 4,
+			id: "3",
 			link: "https://www.linkedin.com/",
 			iconLight: {
 				src: "/images/icons/fa-linkedin-in-light.svg",
@@ -44,7 +44,7 @@ export const defaultSidebarProps = {
 	],
 	personalInfo: [
 		{
-			id: 1,
+			id: "1",
 			name: "Phone",
 			content: `<a href="tel:+1234567890">+123 456 7890</a></>`,
 			iconLight: {
@@ -57,7 +57,7 @@ export const defaultSidebarProps = {
 			}
 		},
 		{
-			id: 2,
+			id: "2",
 			name: "Location",
 			content: `Hong kong china`,
 			iconLight: {
@@ -70,7 +70,7 @@ export const defaultSidebarProps = {
 			}
 		},
 		{
-			id: 3,
+			id: "3",
 			name: "Email",
 			content: `<a href="mailto:ibthemes21@gmail.com">example@mail.com</a>`,
 			iconLight: {
@@ -83,7 +83,7 @@ export const defaultSidebarProps = {
 			}
 		},
 		{
-			id: 4,
+			id: "4",
 			name: "Birthday",
 			content: `May 27, 1990`,
 			iconLight: {
@@ -97,7 +97,7 @@ export const defaultSidebarProps = {
 		}
 	],
 	resume: {
-		url: "/images/cv.pdf",
+		file: { src: "/images/cv.pdf", alt: "resume" },
 		text: "Download Resume",
 		iconLight: {
 			src: "/images/icons/fa-download.svg",
@@ -117,7 +117,7 @@ export const SidebarProps = z
 		header2: z.string(),
 		social: z.array(
 			z.object({
-				id: z.number(),
+				id: z.string(),
 				link: z.string().url(),
 				iconLight: z.object({ src: z.string(), alt: z.string() }),
 				iconDark: z.object({ src: z.string(), alt: z.string() })
@@ -125,7 +125,7 @@ export const SidebarProps = z
 		),
 		personalInfo: z.array(
 			z.object({
-				id: z.number(),
+				id: z.string(),
 				name: z.string(),
 				content: z.string(),
 				iconLight: z.object({ src: z.string(), alt: z.string() }),
@@ -133,7 +133,7 @@ export const SidebarProps = z
 			})
 		),
 		resume: z.object({
-			url: z.string(),
+			file: z.object({ src: z.string(), alt: z.string() }),
 			text: z.string(),
 			iconLight: z.object({ src: z.string(), alt: z.string() }),
 			iconDark: z.object({ src: z.string(), alt: z.string() })
