@@ -70,10 +70,20 @@ const Header = (props: HomeProps["header"]) => {
 								href={item.routePath}
 							>
 								<span className="flex-shrink-0 mr-2 text-xl hidden dark:flex">
-									<img src={item.iconDark.src} alt={item.iconDark.alt} />
+									<Image
+										src={item.iconDark.src}
+										alt={item.iconDark.alt}
+										height={20}
+										width={20}
+									/>
 								</span>
 								<span className="flex-shrink-0 mr-2 text-xl dark:hidden flex">
-									<img src={item.iconLight.src} alt={item.iconLight.alt} />
+									<Image
+										src={item.iconLight.src}
+										alt={item.iconLight.alt}
+										height={20}
+										width={20}
+									/>
 								</span>
 								{item.name}
 							</Link>

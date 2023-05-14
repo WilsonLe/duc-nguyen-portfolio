@@ -1,4 +1,5 @@
 import { HomeProps } from "@/models/HomeProps";
+import Image from "next/image";
 
 const Info = (props: HomeProps["sidebar"]) => {
 	return (
@@ -13,12 +14,22 @@ const Info = (props: HomeProps["sidebar"]) => {
 					<span
 						className={`flex-shrink-0 socialbtn bg-white dark:bg-black shadow-md dark:hidden flex`}
 					>
-						<img src={item.iconLight.src} alt={item.iconLight.alt} />
+						<Image
+							src={item.iconLight.src}
+							alt={item.iconLight.alt}
+							height={20}
+							width={20}
+						/>
 					</span>
 					<span
 						className={`flex-shrink-0 socialbtn bg-white dark:bg-black shadow-md hidden dark:flex`}
 					>
-						<img src={item.iconDark.src} alt={item.iconDark.alt} />
+						<Image
+							src={item.iconDark.src}
+							alt={item.iconDark.alt}
+							height={20}
+							width={20}
+						/>
 					</span>
 					<div className="text-left ml-2.5">
 						<p className="text-xs text-[#44566C] dark:text-[#A6A6A6]">

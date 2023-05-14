@@ -38,15 +38,19 @@ const SidebarInfo = (props: HomeProps["sidebar"]) => {
 					className="inline-flex items-center mx-auto bg-gradient-to-r duration-200 transition ease-linear hover:bg-gradient-to-l from-[#DD2476]  to-[#fa5252ef] px-8 py-3 text-lg text-white rounded-[35px] mt-6"
 				>
 					<span className="flex-shrink-0 mr-2 dark:hidden flex">
-						<img
+						<Image
 							src={props.resume.iconLight.src}
 							alt={props.resume.iconLight.alt}
+							height={20}
+							width={20}
 						/>
 					</span>
 					<span className="flex-shrink-0 mr-2 dark:flex hidden">
-						<img
+						<Image
 							src={props.resume.iconDark.src}
 							alt={props.resume.iconDark.alt}
+							height={20}
+							width={20}
 						/>
 					</span>
 					{props.resume.text}

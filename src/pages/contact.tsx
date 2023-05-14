@@ -1,4 +1,4 @@
-import { ContactProps } from "@/models/ContactProps.ts";
+import { ContactProps } from "@/models/ContactProps";
 import { GetStaticProps, NextPage } from "next";
 import SidebarInfo from "../components/about/SidebarInfo";
 import { Address } from "../components/contact/Address";

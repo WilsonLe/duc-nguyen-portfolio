@@ -1,4 +1,5 @@
 import { HomeProps } from "@/models/HomeProps";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -30,10 +31,20 @@ const HeaderNavigation = (props: HomeProps["header"]) => {
 							href={item.routePath}
 						>
 							<span className="flex-shrink-0 text-xl mb-1 hidden dark:flex">
-								<img src={item.iconDark.src} alt={item.iconDark.alt} />
+								<Image
+									src={item.iconDark.src}
+									alt={item.iconDark.alt}
+									height={20}
+									width={20}
+								/>
 							</span>
 							<span className="flex-shrink-0 text-xl mb-1 dark:hidden flex">
-								<img src={item.iconLight.src} alt={item.iconLight.alt} />
+								<Image
+									src={item.iconLight.src}
+									alt={item.iconLight.alt}
+									height={20}
+									width={20}
+								/>
 							</span>
 							{item.name}
 						</Link>

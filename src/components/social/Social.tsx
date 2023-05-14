@@ -1,4 +1,5 @@
 import { HomeProps } from "@/models/HomeProps";
+import Image from "next/image";
 
 const Social = (props: HomeProps["sidebar"]) => {
 	return (
@@ -11,10 +12,20 @@ const Social = (props: HomeProps["sidebar"]) => {
 					key={item.id}
 				>
 					<span className="flex-shrink-0 socialbtn hidden dark:flex ">
-						<img src={item.iconDark.src} alt={item.iconDark.alt} />
+						<Image
+							src={item.iconDark.src}
+							alt={item.iconDark.alt}
+							height={20}
+							width={20}
+						/>
 					</span>
 					<span className="flex-shrink-0 socialbtn dark:hidden flex">
-						<img src={item.iconLight.src} alt={item.iconLight.alt} />
+						<Image
+							src={item.iconLight.src}
+							alt={item.iconLight.alt}
+							height={20}
+							width={20}
+						/>
 					</span>
 				</a>
 			))}
