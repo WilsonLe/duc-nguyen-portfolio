@@ -12,6 +12,7 @@ export const works: GlobalConfig = {
 			name: "tags",
 			type: "relationship",
 			relationTo: "project tags",
+			hasMany: true,
 			required: true
 		},
 		{
