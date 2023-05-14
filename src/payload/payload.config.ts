@@ -3,9 +3,15 @@ import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import path from "path";
 import { buildConfig } from "payload/config";
 import { media } from "./collections/media";
+import { projectTags } from "./collections/projectTags";
 import { projects } from "./collections/projects";
-import { tags } from "./collections/tags";
 import { users } from "./collections/users";
+import { contact } from "./globals/contact";
+import { header } from "./globals/header";
+import { home } from "./globals/home";
+import { resume } from "./globals/resume";
+import { sidebar } from "./globals/sidebar";
+import { works } from "./globals/works";
 
 const adapter = s3Adapter({
 	config: {
@@ -34,10 +40,8 @@ export default buildConfig({
 		})
 	],
 	admin: { user: users.slug },
-	collections: [media, tags, users, projects],
-	globals: [
-		// Your globals here
-	],
+	collections: [media, projectTags, users, projects],
+	globals: [header, sidebar, home, resume, works, contact],
 	graphQL: {
 		disablePlaygroundInProduction: false,
 		disable: true

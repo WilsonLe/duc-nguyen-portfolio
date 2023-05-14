@@ -22,7 +22,7 @@ export const projects: CollectionConfig = {
 		{
 			name: "tags",
 			type: "relationship",
-			relationTo: "tags",
+			relationTo: "project tags",
 			hasMany: true
 		},
 		{
