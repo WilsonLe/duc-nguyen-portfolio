@@ -1,4 +1,4 @@
-import { CMS } from "@/services/cms";
+import { Axios } from "@/services/axios";
 import { z } from "zod";
 import { serializeHTML } from "./serializeHTML";
 
@@ -54,8 +54,8 @@ export type WorksMainData = z.infer<typeof WorksMainSchema>;
 
 export class WorksMain {
 	public static async get(): Promise<WorksMainData> {
-		const resWorks = await CMS.get("/api/globals/works");
-		const resTags = await CMS.get("/api/project tags?limit=100");
+		const resWorks = await Axios.get("/api/globals/works");
+		const resTags = await Axios.get("/api/project tags?limit=100");
 		return this.parse({ ...resWorks.data, tags: resTags.data.docs });
 	}
 

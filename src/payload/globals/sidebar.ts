@@ -1,3 +1,4 @@
+import { Axios } from "@/services/axios";
 import type { GlobalConfig } from "payload/types";
 
 export const sidebar: GlobalConfig = {
@@ -105,5 +106,16 @@ export const sidebar: GlobalConfig = {
 				}
 			]
 		}
-	]
+	],
+	hooks: {
+		afterChange: [
+			async (args) => {
+				await Axios.post("/api/revalidate", {
+					token: process.env.REVALIDATION_TOKEN,
+					path: ["/", "/resume", "/works", "/contact"]
+				});
+				return args.doc;
+			}
+		]
+	}
 };

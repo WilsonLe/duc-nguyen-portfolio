@@ -1,3 +1,4 @@
+import { Axios } from "@/services/axios";
 import type { GlobalConfig } from "payload/types";
 
 export const works: GlobalConfig = {
@@ -85,5 +86,16 @@ export const works: GlobalConfig = {
 				}
 			]
 		}
-	]
+	],
+	hooks: {
+		afterChange: [
+			async (args) => {
+				await Axios.post("/api/revalidate", {
+					token: process.env.REVALIDATION_TOKEN,
+					path: ["/works"]
+				});
+				return args.doc;
+			}
+		]
+	}
 };

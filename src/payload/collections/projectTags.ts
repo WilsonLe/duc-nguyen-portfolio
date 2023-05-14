@@ -1,4 +1,8 @@
+import { Axios } from "@/services/axios";
+import dotenv from "dotenv";
 import { CollectionConfig } from "payload/types";
+
+dotenv.config();
 
 export const projectTags: CollectionConfig = {
 	slug: "project tags",
@@ -14,5 +18,16 @@ export const projectTags: CollectionConfig = {
 			type: "text"
 		}
 	],
+	hooks: {
+		afterChange: [
+			async (args) => {
+				await Axios.post("/api/revalidate", {
+					token: process.env.REVALIDATION_TOKEN,
+					path: ["/works"]
+				});
+				return args.doc;
+			}
+		]
+	},
 	timestamps: false
 };

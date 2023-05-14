@@ -1,4 +1,4 @@
-import { CMS } from "@/services/cms";
+import { Axios } from "@/services/axios";
 import { z } from "zod";
 import { serializeHTML } from "./serializeHTML";
 
@@ -39,7 +39,7 @@ export type ResumeMainData = z.infer<typeof ResumeMainSchema>;
 
 export class ResumeMain {
 	public static async get(): Promise<ResumeMainData> {
-		const res = await CMS.get("/api/globals/resume");
+		const res = await Axios.get("/api/globals/resume");
 		return this.parse(res.data);
 	}
 

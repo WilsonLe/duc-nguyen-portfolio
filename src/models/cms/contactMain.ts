@@ -1,4 +1,4 @@
-import { CMS } from "@/services/cms";
+import { Axios } from "@/services/axios";
 import { z } from "zod";
 import { serializeHTML } from "./serializeHTML";
 
@@ -32,7 +32,7 @@ export type ContactMainData = z.infer<typeof ContactMainSchema>;
 
 export class ContactMain {
 	public static async get(): Promise<ContactMainData> {
-		const res = await CMS.get("/api/globals/contact");
+		const res = await Axios.get("/api/globals/contact");
 		return this.parse(res.data);
 	}
 

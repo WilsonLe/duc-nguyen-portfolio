@@ -1,4 +1,4 @@
-import { CMS } from "@/services/cms";
+import { Axios } from "@/services/axios";
 import { z } from "zod";
 import { serializeHTML } from "./serializeHTML";
 
@@ -44,7 +44,7 @@ export type HomeMainData = z.infer<typeof HomeMainSchema>;
 
 export class HomeMain {
 	public static async get(): Promise<HomeMainData> {
-		const res = await CMS.get("/api/globals/home");
+		const res = await Axios.get("/api/globals/home");
 		return this.parse(res.data);
 	}
 

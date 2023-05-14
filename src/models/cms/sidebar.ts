@@ -1,4 +1,4 @@
-import { CMS } from "@/services/cms";
+import { Axios } from "@/services/axios";
 import { z } from "zod";
 import { serializeHTML } from "./serializeHTML";
 
@@ -53,7 +53,7 @@ export type SidebarData = z.infer<typeof SidebarSchema>;
 export class Sidebar {
 	public static async get(): Promise<SidebarData | undefined> {
 		try {
-			const res = await CMS.get("/api/globals/sidebar");
+			const res = await Axios.get("/api/globals/sidebar");
 			return this.parse(res.data);
 		} catch (error) {
 			console.log(error);
