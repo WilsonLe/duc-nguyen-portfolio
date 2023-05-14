@@ -4,6 +4,11 @@ export const works: GlobalConfig = {
 	slug: "works",
 	fields: [
 		{
+			name: "page title",
+			type: "text",
+			required: true
+		},
+		{
 			name: "header",
 			type: "text",
 			required: true

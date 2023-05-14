@@ -4,6 +4,11 @@ export const resume: GlobalConfig = {
 	slug: "resume",
 	fields: [
 		{
+			name: "page title",
+			type: "text",
+			required: true
+		},
+		{
 			name: "header",
 			type: "text",
 			required: true

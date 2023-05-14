@@ -9,7 +9,6 @@ import { contact } from "./globals/contact";
 import { header } from "./globals/header";
 import { home } from "./globals/home";
 import { resume } from "./globals/resume";
-import { seo } from "./globals/seo";
 import { sidebar } from "./globals/sidebar";
 import { works } from "./globals/works";
 
@@ -41,7 +40,7 @@ export default buildConfig({
 	],
 	admin: { user: users.slug },
 	collections: [media, users, projectTags],
-	globals: [header, sidebar, home, resume, works, contact, seo],
+	globals: [header, sidebar, home, resume, works, contact],
 	graphQL: {
 		disablePlaygroundInProduction: false,
 		disable: true

@@ -4,6 +4,11 @@ export const home: GlobalConfig = {
 	slug: "home",
 	fields: [
 		{
+			name: "page title",
+			type: "text",
+			required: true
+		},
+		{
 			name: "about",
 			type: "group",
 			fields: [

@@ -4,6 +4,11 @@ export const contact: GlobalConfig = {
 	slug: "contact",
 	fields: [
 		{
+			name: "page title",
+			type: "text",
+			required: true
+		},
+		{
 			name: "header",
 			type: "text",
 			required: true
