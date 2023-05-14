@@ -9,13 +9,6 @@ export const works: GlobalConfig = {
 			required: true
 		},
 		{
-			name: "tags",
-			type: "relationship",
-			relationTo: "project tags",
-			hasMany: true,
-			required: true
-		},
-		{
 			name: "projects",
 			type: "group",
 			fields: [
