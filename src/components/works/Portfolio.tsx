@@ -1,7 +1,7 @@
 import { WorksProps } from "@/models/WorksProps";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { BsXCircle } from "react-icons/bs";
 import Masonry from "react-masonry-css";
 import Modal from "react-modal";
@@ -30,27 +30,30 @@ export const Portfolio: FC<WorksProps["main"]> = (props) => {
 
 	// start filter data based on function
 	const [queryText, setQueryText] = useState("All");
+	const [projects, setProjects] = useState(props.projects);
+
+	// fillter portfilo data
+	const queryProjects = useCallback(
+		(text: string) => {
+			if (text === "All") {
+				setProjects(props.projects);
+			} else {
+				const projects = props.projects.filter((item) => item.tag === text);
+				setProjects(projects);
+			}
+		},
+		[props.projects]
+	);
 
 	const handleProjectQuery = (queryText: string) => {
 		queryProjects(queryText);
 		setQueryText(queryText);
 	};
+
 	useEffect(() => {
 		setQueryText("All");
 		queryProjects("All");
-	}, []);
-
-	const [projects, setProjects] = useState(props.projects);
-
-	// fillter portfilo data
-	const queryProjects = (text: string) => {
-		if (text === "All") {
-			setProjects(props.projects);
-		} else {
-			const projects = props.projects.filter((item) => item.tag === text);
-			setProjects(projects);
-		}
-	};
+	}, [queryProjects]);
 
 	return (
 		<>
@@ -58,7 +61,7 @@ export const Portfolio: FC<WorksProps["main"]> = (props) => {
 			<ul className="mt-[40px] flex w-full justify-start md:justify-end flex-wrap font-medium pb-12">
 				<li
 					className={`${
-						queryText === "All" ? "text-[#FA5252]" : "fillter-btn "
+						queryText === "All" ? "text-[#FA5252]" : "fillter-btn"
 					} mr-4 md:mx-4`}
 					onClick={() => handleProjectQuery("All")}
 				>
@@ -81,7 +84,7 @@ export const Portfolio: FC<WorksProps["main"]> = (props) => {
 				className="my-masonry-grid"
 				columnClassName="my-masonry-grid_column"
 			>
-				{props.projects.map((item) => (
+				{projects.map((item) => (
 					<div
 						className="rounded-lg p-6 dark:border-[2px] border-[#212425]"
 						style={{
