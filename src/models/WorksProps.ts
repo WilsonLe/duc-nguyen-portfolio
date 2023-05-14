@@ -13,7 +13,7 @@ const defaultWorksProps = {
 	header: defaultHeaderProps,
 	sidebar: defaultSidebarProps,
 	seo: {
-		pageTitle: "Home"
+		pageTitle: "Works"
 	},
 	main: {
 		header: "Portfolio",

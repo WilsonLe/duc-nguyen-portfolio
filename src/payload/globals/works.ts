@@ -19,7 +19,8 @@ export const works: GlobalConfig = {
 			fields: [
 				{
 					name: "tag",
-					type: "text",
+					type: "relationship",
+					relationTo: "project tags",
 					required: true
 				},
 				{
