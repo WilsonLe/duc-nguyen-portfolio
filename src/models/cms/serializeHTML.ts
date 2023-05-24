@@ -2,6 +2,7 @@ import escapeHTML from "escape-html";
 import { Text } from "slate";
 
 export const serializeHTML = (children: any): any => {
+	if (typeof children === 'string') return children;
 	return children
 		.map((node: any, i: number) => {
 			if (Text.isText(node) as any) {
